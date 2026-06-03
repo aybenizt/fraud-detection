@@ -1,0 +1,26 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Data (preventing 150MB creditcard.csv from being committed)
+creditcard.csv
+data/
+
+# Trained Models and Logs
+models/
+logs/
+
+# MLflow metric/run tracking files
+mlruns/
+
+# Testing cache
+.pytest_cache/
+
+# IDE / Operating System caches
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

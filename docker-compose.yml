@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - MLFLOW_TRACKING_URI=file:///app/mlruns
+    restart: always
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: streamlit run src/app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - MLFLOW_TRACKING_URI=file:///app/mlruns
+    depends_on:
+      - api
+    restart: always
