@@ -16,7 +16,7 @@ This project implements a production-grade, end-to-end fraud detection machine l
 ## Directory Structure
 
 ```text
-mlll/
+fraud-detection/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py         # Configs, column mapping, and hyperparameters
